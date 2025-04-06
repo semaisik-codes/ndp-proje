@@ -1,8 +1,11 @@
+package Main;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class SinemaSistemi {
+
 
     static class Film {
         String ad;
@@ -54,15 +57,15 @@ public class SinemaSistemi {
 
         while (true) {
             System.out.println("\nSinema Sistemi");
-            System.out.println("1) Film Ekle");
-            System.out.println("2) Müşteri Ekle");
-            System.out.println("3) Bilet Kaydet");
-            System.out.println("4) Biletleri Listele");
-            System.out.println("5) Çıkış");
+            System.out.println("1. Film Ekle");
+            System.out.println("2. Müşteri Ekle");
+            System.out.println("3. Bilet Kaydet");
+            System.out.println("4. Biletleri Listele");
+            System.out.println("5. Çıkış");
             System.out.print("Seçiminiz: ");
 
             int secim = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Dummy read
 
             switch (secim) {
                 case 1:
@@ -81,7 +84,7 @@ public class SinemaSistemi {
                     System.out.println("Çıkılıyor...");
                     return;
                 default:
-                    System.out.println("Geçersiz seçim yaptınız.");
+                    System.out.println("Geçersiz seçim.");
             }
         }
     }
@@ -110,7 +113,7 @@ public class SinemaSistemi {
 
     static void biletKaydet(Scanner scanner) {
         if (musteriler.isEmpty() || filmler.isEmpty()) {
-            System.out.println("Önce müşteri ve film ekleyiniz.");
+            System.out.println("Önce müşteri ve film ekleyin.");
             return;
         }
 
@@ -121,7 +124,7 @@ public class SinemaSistemi {
         scanner.nextLine();
 
         if (musteriIndex < 0 || musteriIndex >= musteriler.size() || filmIndex < 0 || filmIndex >= filmler.size()) {
-            System.out.println("Geçersiz seçim yaptınız.");
+            System.out.println("Geçersiz seçim.");
             return;
         }
 
@@ -136,13 +139,15 @@ public class SinemaSistemi {
             System.out.println("\n" + musteri);
             System.out.print("Biletler: ");
             if (musteri.biletler.isEmpty()) {
-                System.out.println("Yok.");
+                System.out.println("Yok");
             } else {
                 for (Film film : musteri.biletler) {
-                    System.out.print(film.getAd() + " , ");
+                    System.out.print(film.getAd() + " | ");
                 }
                 System.out.println();
             }
         }
     }
 }
+
+
